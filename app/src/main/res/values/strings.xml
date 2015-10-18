@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">Chuck Norris Jokes</string>
+  <string name="chuck_norris_jokes">Chuck Norris Jokes</string>
+  <string name="something_went_wrong_error">Something went wrong</string>
+</resources>
