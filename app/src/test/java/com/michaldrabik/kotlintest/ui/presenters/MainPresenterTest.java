@@ -1,15 +1,13 @@
 package com.michaldrabik.kotlintest.ui.presenters;
 
-import android.support.annotation.NonNull;
 import com.michaldrabik.kotlintest.BuildConfig;
 import com.michaldrabik.kotlintest.JokesApp;
 import com.michaldrabik.kotlintest.MockModelsFactory;
 import com.michaldrabik.kotlintest.data.api.Api;
 import com.michaldrabik.kotlintest.data.models.Joke;
 import com.michaldrabik.kotlintest.data.models.Response;
-import com.michaldrabik.kotlintest.ui.activities.MainActivity;
-import com.michaldrabik.kotlintest.ui.activities.presenters.MainPresenter;
-import java.util.List;
+import com.michaldrabik.kotlintest.ui.views.MainView;
+import com.michaldrabik.kotlintest.ui.views.presenters.MainPresenter;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +27,7 @@ import static org.mockito.Mockito.when;
 public class MainPresenterTest {
 
   @Mock Api api;
-  @Mock MainActivityTest activity;
+  @Mock MainView activity;
   private MainPresenter presenter;
 
   @Before public void setup() {
@@ -55,15 +53,5 @@ public class MainPresenterTest {
     when(api.fetchRandomJokes()).thenReturn(Observable.<Response<Joke>>error(new Throwable("Error")));
     presenter.fetchJokes();
     verify(activity).onFetchJokesError(Matchers.<Throwable>any());
-  }
-
-  private class MainActivityTest extends MainActivity {
-    @Override public void onFetchJokesSuccess(@NonNull List<? extends Joke> jokes) {
-      //Do nothing
-    }
-
-    @Override public void onFetchJokesError(@NonNull Throwable error) {
-      //Do nothing
-    }
   }
 }

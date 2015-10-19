@@ -1,20 +1,21 @@
-package com.michaldrabik.kotlintest.ui.activities.presenters
+package com.michaldrabik.kotlintest.ui.views.presenters
 
-import com.michaldrabik.kotlintest.ui.activities.BaseActivity
+import com.michaldrabik.kotlintest.ui.views.PresentationView
+import com.michaldrabik.kotlintest.ui.views.BaseActivity
 import rx.Subscription
 import rx.subscriptions.CompositeSubscription
 
-abstract class BasePresenter<T : BaseActivity>() {
+abstract class BasePresenter<T : PresentationView>() {
 
   protected val compositeSubscription = CompositeSubscription()
-  protected var activity: T? = null
+  protected var view: T? = null
 
-  fun bind(t: T) {
-    activity = t
+  fun bind(view: T) {
+    this.view = view
   }
 
   fun unbind() {
-    activity = null
+    this.view = null
   }
 
   protected fun addSubscription(subscription: Subscription) {

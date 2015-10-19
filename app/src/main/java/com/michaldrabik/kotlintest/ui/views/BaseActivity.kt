@@ -1,4 +1,4 @@
-package com.michaldrabik.kotlintest.ui.activities
+package com.michaldrabik.kotlintest.ui.views
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

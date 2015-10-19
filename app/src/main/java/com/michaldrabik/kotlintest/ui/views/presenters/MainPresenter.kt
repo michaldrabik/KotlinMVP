@@ -1,13 +1,14 @@
-package com.michaldrabik.kotlintest.ui.activities.presenters
+package com.michaldrabik.kotlintest.ui.views.presenters
 
 import com.michaldrabik.kotlintest.data.SimpleObserver
 import com.michaldrabik.kotlintest.data.api.Api
 import com.michaldrabik.kotlintest.data.api.JokesApi
 import com.michaldrabik.kotlintest.data.models.Joke
 import com.michaldrabik.kotlintest.data.models.Response
-import com.michaldrabik.kotlintest.ui.activities.MainActivity
+import com.michaldrabik.kotlintest.ui.views.MainView
+import com.michaldrabik.kotlintest.ui.views.MainActivity
 
-class MainPresenter() : BasePresenter<MainActivity>() {
+class MainPresenter() : BasePresenter<MainView>() {
 
   var api: Api = JokesApi()
 
@@ -24,11 +25,11 @@ class MainPresenter() : BasePresenter<MainActivity>() {
   }
 
   fun onFetchJokesSuccess(jokes: List<Joke>) {
-    activity?.onFetchJokesSuccess(jokes)
+    view?.onFetchJokesSuccess(jokes)
   }
 
   fun onFetchJokesError(error: Throwable) {
-    activity?.onFetchJokesError(error)
+    view?.onFetchJokesError(error)
   }
 
 }

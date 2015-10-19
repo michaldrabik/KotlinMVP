@@ -1,4 +1,4 @@
-package com.michaldrabik.kotlintest.ui.activities
+package com.michaldrabik.kotlintest.ui.views
 
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
@@ -9,14 +9,15 @@ import com.michaldrabik.kotlintest.extensions.dpToPx
 import com.michaldrabik.kotlintest.extensions.hide
 import com.michaldrabik.kotlintest.extensions.show
 import com.michaldrabik.kotlintest.ui.DividerItemDecoration
-import com.michaldrabik.kotlintest.ui.activities.presenters.MainPresenter
+import com.michaldrabik.kotlintest.ui.views.MainView
+import com.michaldrabik.kotlintest.ui.views.presenters.MainPresenter
 import com.michaldrabik.kotlintest.ui.adapters.MainAdapter
 import kotlinx.android.synthetic.activity_main.progressBar
 import kotlinx.android.synthetic.activity_main.recyclerView
 import kotlinx.android.synthetic.activity_main.swipeRefreshLayout
 import org.jetbrains.anko.toast
 
-open class MainActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener {
+open class MainActivity : BaseActivity(), MainView, SwipeRefreshLayout.OnRefreshListener {
 
   val adapter = MainAdapter()
   val presenter = MainPresenter()
@@ -49,14 +50,14 @@ open class MainActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener {
     progressBar.show()
   }
 
-  open fun onFetchJokesSuccess(jokes: List<Joke>) {
+  override fun onFetchJokesSuccess(jokes: List<Joke>) {
     adapter.clearItems()
     adapter.addItems(jokes)
     progressBar.hide()
     swipeRefreshLayout.isRefreshing = false;
   }
 
-  open fun onFetchJokesError(error: Throwable) {
+  override fun onFetchJokesError(error: Throwable) {
     toast(getString(R.string.something_went_wrong_error) + error.getMessage())
     progressBar.hide()
     swipeRefreshLayout.isRefreshing = false;
