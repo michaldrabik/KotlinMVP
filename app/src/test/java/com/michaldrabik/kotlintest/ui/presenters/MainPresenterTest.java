@@ -34,7 +34,7 @@ public class MainPresenterTest {
     MockitoAnnotations.initMocks(this);
     presenter = new MainPresenter();
     presenter.bind(activity);
-    presenter.setApi(api);
+    presenter.setJokesApi(api);
   }
 
   @Test public void shouldFetchJokesWhenRequested() {

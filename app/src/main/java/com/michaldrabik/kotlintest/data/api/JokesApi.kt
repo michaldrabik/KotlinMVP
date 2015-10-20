@@ -10,7 +10,7 @@ import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-class JokesApi() : Api {
+object JokesApi : Api {
 
   private val jokesService = buildRetrofit().create(JokesService::class.java)
 

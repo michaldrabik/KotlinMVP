@@ -1,3 +1,3 @@
 package com.michaldrabik.kotlintest.ui.views
 
-interface PresentationView
+interface PresenterView
