@@ -15,7 +15,7 @@ data class Joke(val id: Int, val joke: String) : Parcelable {
   }
 
   companion object {
-    public val CREATOR: Parcelable.Creator<Joke> = object : Parcelable.Creator<Joke> {
+    @JvmField public val CREATOR: Parcelable.Creator<Joke> = object : Parcelable.Creator<Joke> {
       override fun createFromParcel(parcelIn: Parcel): Joke {
         return Joke(parcelIn.readInt(), parcelIn.readString());
       }
