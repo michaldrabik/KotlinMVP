@@ -2,7 +2,7 @@ package com.michaldrabik.kotlintest.ui.views.presenters
 
 import com.michaldrabik.kotlintest.data.api.Api
 import com.michaldrabik.kotlintest.data.api.JokesApi
-import com.michaldrabik.kotlintest.ui.views.PresenterView
+import com.michaldrabik.kotlintest.ui.views.interfaces.PresenterView
 import rx.Subscription
 import rx.subscriptions.CompositeSubscription
 

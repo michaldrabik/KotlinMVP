@@ -3,7 +3,7 @@ package com.michaldrabik.kotlintest.ui.views.presenters
 import com.michaldrabik.kotlintest.data.SimpleObserver
 import com.michaldrabik.kotlintest.data.models.Joke
 import com.michaldrabik.kotlintest.data.models.Response
-import com.michaldrabik.kotlintest.ui.views.MainView
+import com.michaldrabik.kotlintest.ui.views.interfaces.MainView
 
 class MainPresenter() : BasePresenter<MainView>() {
 

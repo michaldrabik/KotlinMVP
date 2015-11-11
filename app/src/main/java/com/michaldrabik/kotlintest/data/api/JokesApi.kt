@@ -22,7 +22,7 @@ object JokesApi : Api {
   override fun fetchRandomJokes(): Observable<Response<Joke>> {
     return jokesService.fetchRandomJokes()
         .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread());
+        .observeOn(AndroidSchedulers.mainThread())
   }
 
 }

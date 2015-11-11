@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import com.michaldrabik.kotlintest.R
-import org.jetbrains.anko.find
 
 public abstract class BaseActivity : AppCompatActivity() {
 
   protected abstract fun getLayoutResId(): Int
 
   protected abstract fun getActivityTitle(): String
+
+  private val toolbarTitle by lazy { findViewById(R.id.toolbarTitle) as TextView }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -19,7 +20,7 @@ public abstract class BaseActivity : AppCompatActivity() {
   }
 
   private fun setupToolbar() {
-    find<TextView>(R.id.toolbarTitle).text = getActivityTitle()
+    toolbarTitle.text = getActivityTitle()
   }
 
 }

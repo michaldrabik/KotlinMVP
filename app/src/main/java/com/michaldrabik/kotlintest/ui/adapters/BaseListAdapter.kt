@@ -14,14 +14,14 @@ abstract class BaseListAdapter<T : Parcelable>() : RecyclerView.Adapter<BaseList
   protected var items: MutableList<T> = ArrayList()
 
   fun clearItems() {
-    val itemCount = items.size()
+    val itemCount = items.size
     items.clear()
     notifyItemRangeRemoved(0, itemCount)
   }
 
   fun addItems(itemsToAdd: List<T>) {
     items.addAll(itemsToAdd)
-    notifyItemRangeInserted(0, itemsToAdd.size())
+    notifyItemRangeInserted(0, itemsToAdd.size)
   }
 
   override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
@@ -29,11 +29,11 @@ abstract class BaseListAdapter<T : Parcelable>() : RecyclerView.Adapter<BaseList
   }
 
   override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-    viewHolder.view.setData(items.get(position))
+    viewHolder.view.setData(items[position])
   }
 
   override fun getItemCount(): Int {
-    return items.size()
+    return items.size
   }
 
   inner class ViewHolder(var view: BaseViewHolder<T>) : RecyclerView.ViewHolder(view)

@@ -1,4 +1,4 @@
-package com.michaldrabik.kotlintest.ui.views
+package com.michaldrabik.kotlintest.ui.views.interfaces
 
 import com.michaldrabik.kotlintest.data.models.Joke
 

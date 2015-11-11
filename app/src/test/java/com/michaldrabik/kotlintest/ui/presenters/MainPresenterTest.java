@@ -6,7 +6,7 @@ import com.michaldrabik.kotlintest.MockModelsFactory;
 import com.michaldrabik.kotlintest.data.api.Api;
 import com.michaldrabik.kotlintest.data.models.Joke;
 import com.michaldrabik.kotlintest.data.models.Response;
-import com.michaldrabik.kotlintest.ui.views.MainView;
+import com.michaldrabik.kotlintest.ui.views.interfaces.MainView;
 import com.michaldrabik.kotlintest.ui.views.presenters.MainPresenter;
 import org.junit.Before;
 import org.junit.Test;
