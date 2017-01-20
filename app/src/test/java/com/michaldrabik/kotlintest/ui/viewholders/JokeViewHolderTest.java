@@ -3,7 +3,7 @@ package com.michaldrabik.kotlintest.ui.viewholders;
 import android.app.Activity;
 import android.widget.TextView;
 import com.michaldrabik.kotlintest.BuildConfig;
-import com.michaldrabik.kotlintest.JokesApp;
+import com.michaldrabik.kotlintest.App;
 import com.michaldrabik.kotlintest.MockModelsFactory;
 import com.michaldrabik.kotlintest.R;
 import com.michaldrabik.kotlintest.data.models.Joke;
@@ -18,7 +18,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(application = JokesApp.class, constants = BuildConfig.class, sdk = 21, manifest = "/src/main/AndroidManifest.xml")
+@Config(application = App.class, constants = BuildConfig.class, sdk = 21, manifest = "/src/main/AndroidManifest.xml")
 public class JokeViewHolderTest {
 
   private JokeViewHolder jokeViewHolder;

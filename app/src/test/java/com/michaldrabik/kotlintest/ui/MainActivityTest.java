@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.michaldrabik.kotlintest.BuildConfig;
-import com.michaldrabik.kotlintest.JokesApp;
+import com.michaldrabik.kotlintest.App;
 import com.michaldrabik.kotlintest.MockModelsFactory;
 import com.michaldrabik.kotlintest.R;
 import com.michaldrabik.kotlintest.ui.views.MainActivity;
@@ -25,7 +25,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(application = JokesApp.class, constants = BuildConfig.class, sdk = 21, manifest = "/src/main/AndroidManifest.xml")
+@Config(application = App.class, constants = BuildConfig.class, sdk = 21, manifest = "/src/main/AndroidManifest.xml")
 public class MainActivityTest {
 
   private MainActivity activity;

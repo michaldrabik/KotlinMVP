@@ -1,7 +1,7 @@
 package com.michaldrabik.kotlintest.ui.presenters;
 
 import com.michaldrabik.kotlintest.BuildConfig;
-import com.michaldrabik.kotlintest.JokesApp;
+import com.michaldrabik.kotlintest.App;
 import com.michaldrabik.kotlintest.MockModelsFactory;
 import com.michaldrabik.kotlintest.data.api.Api;
 import com.michaldrabik.kotlintest.data.models.Joke;
@@ -23,7 +23,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(application = JokesApp.class, constants = BuildConfig.class, sdk = 21, manifest = "/src/main/AndroidManifest.xml")
+@Config(application = App.class, constants = BuildConfig.class, sdk = 21, manifest = "/src/main/AndroidManifest.xml")
 public class MainPresenterTest {
 
   @Mock Api api;

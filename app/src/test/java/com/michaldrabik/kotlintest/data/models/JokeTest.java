@@ -2,7 +2,7 @@ package com.michaldrabik.kotlintest.data.models;
 
 import android.os.Parcel;
 import com.michaldrabik.kotlintest.BuildConfig;
-import com.michaldrabik.kotlintest.JokesApp;
+import com.michaldrabik.kotlintest.App;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricGradleTestRunner;
@@ -11,7 +11,7 @@ import org.robolectric.annotation.Config;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(application = JokesApp.class, constants = BuildConfig.class, sdk = 21, manifest = "/src/main/AndroidManifest.xml") public class JokeTest {
+@Config(application = App.class, constants = BuildConfig.class, sdk = 21, manifest = "/src/main/AndroidManifest.xml") public class JokeTest {
 
   /**
    * This test checks if Parcelable implementation is correct.
