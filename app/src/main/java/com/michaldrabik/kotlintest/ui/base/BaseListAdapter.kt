@@ -1,10 +1,9 @@
-package com.michaldrabik.kotlintest.ui.adapters
+package com.michaldrabik.kotlintest.ui.base
 
 import android.content.Context
 import android.os.Parcelable
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import com.michaldrabik.kotlintest.ui.viewholders.BaseViewHolder
 import java.util.*
 
 abstract class BaseListAdapter<T : Parcelable> : RecyclerView.Adapter<BaseListAdapter<T>.ViewHolder>() {

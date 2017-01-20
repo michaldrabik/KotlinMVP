@@ -1,4 +1,4 @@
-package com.michaldrabik.kotlintest.ui.views
+package com.michaldrabik.kotlintest.ui.main
 
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
@@ -6,13 +6,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.michaldrabik.kotlintest.R
 import com.michaldrabik.kotlintest.data.models.Joke
-import com.michaldrabik.kotlintest.extensions.dpToPx
-import com.michaldrabik.kotlintest.extensions.hide
-import com.michaldrabik.kotlintest.extensions.show
-import com.michaldrabik.kotlintest.ui.DividerItemDecoration
-import com.michaldrabik.kotlintest.ui.adapters.MainAdapter
-import com.michaldrabik.kotlintest.ui.views.interfaces.MainView
-import com.michaldrabik.kotlintest.ui.views.presenters.MainPresenter
+import com.michaldrabik.kotlintest.ui.base.BaseActivity
+import com.michaldrabik.kotlintest.utilities.DividerItemDecoration
+import com.michaldrabik.kotlintest.utilities.dpToPx
+import com.michaldrabik.kotlintest.utilities.hide
+import com.michaldrabik.kotlintest.utilities.show
 import kotlinx.android.synthetic.main.activity_main.*
 
 open class MainActivity : BaseActivity(), MainView, SwipeRefreshLayout.OnRefreshListener {

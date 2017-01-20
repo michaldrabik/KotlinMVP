@@ -1,11 +1,10 @@
-package com.michaldrabik.kotlintest.ui.views.presenters
+package com.michaldrabik.kotlintest.ui.base
 
 import com.michaldrabik.kotlintest.data.api.Api
 import com.michaldrabik.kotlintest.data.api.JokesApi
-import com.michaldrabik.kotlintest.ui.views.interfaces.PresenterView
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class BasePresenter<T : PresenterView> {
+abstract class BasePresenter<T : MvpView> {
 
   var jokesApi: Api = JokesApi
   protected val disposables = CompositeDisposable()

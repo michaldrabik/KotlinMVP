@@ -1,13 +1,14 @@
 package com.michaldrabik.kotlintest.ui.presenters;
 
-import com.michaldrabik.kotlintest.BuildConfig;
 import com.michaldrabik.kotlintest.App;
+import com.michaldrabik.kotlintest.BuildConfig;
 import com.michaldrabik.kotlintest.MockModelsFactory;
 import com.michaldrabik.kotlintest.data.api.Api;
 import com.michaldrabik.kotlintest.data.models.Joke;
 import com.michaldrabik.kotlintest.data.models.Response;
-import com.michaldrabik.kotlintest.ui.views.interfaces.MainView;
-import com.michaldrabik.kotlintest.ui.views.presenters.MainPresenter;
+import com.michaldrabik.kotlintest.ui.main.MainPresenter;
+import com.michaldrabik.kotlintest.ui.main.MainView;
+import io.reactivex.Observable;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +17,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
-import rx.Observable;
 
 import static org.mockito.Matchers.anyListOf;
 import static org.mockito.Mockito.verify;

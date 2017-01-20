@@ -1,5 +1,6 @@
-package com.michaldrabik.kotlintest.ui
+package com.michaldrabik.kotlintest.utilities
 
+import android.R
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Rect
@@ -76,7 +77,7 @@ class DividerItemDecoration(context: Context, orientation: Int, marginPx: Int) :
 
   companion object {
 
-    private val ATTRS = intArrayOf(android.R.attr.listDivider)
+    private val ATTRS = intArrayOf(R.attr.listDivider)
     val HORIZONTAL_LIST = LinearLayoutManager.HORIZONTAL
     val VERTICAL_LIST = LinearLayoutManager.VERTICAL
   }

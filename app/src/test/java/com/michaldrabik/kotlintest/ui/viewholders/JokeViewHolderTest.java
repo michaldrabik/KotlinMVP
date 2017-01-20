@@ -2,11 +2,12 @@ package com.michaldrabik.kotlintest.ui.viewholders;
 
 import android.app.Activity;
 import android.widget.TextView;
-import com.michaldrabik.kotlintest.BuildConfig;
 import com.michaldrabik.kotlintest.App;
+import com.michaldrabik.kotlintest.BuildConfig;
 import com.michaldrabik.kotlintest.MockModelsFactory;
 import com.michaldrabik.kotlintest.R;
 import com.michaldrabik.kotlintest.data.models.Joke;
+import com.michaldrabik.kotlintest.ui.main.JokeViewHolder;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

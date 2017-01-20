@@ -1,4 +1,4 @@
-package com.michaldrabik.kotlintest.ui.viewholders
+package com.michaldrabik.kotlintest.ui.base
 
 import android.content.Context
 import android.os.Parcelable

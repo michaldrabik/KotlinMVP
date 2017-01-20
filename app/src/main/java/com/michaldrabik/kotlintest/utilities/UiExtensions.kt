@@ -1,4 +1,4 @@
-package com.michaldrabik.kotlintest.extensions
+package com.michaldrabik.kotlintest.utilities
 
 import android.content.Context
 import android.view.View

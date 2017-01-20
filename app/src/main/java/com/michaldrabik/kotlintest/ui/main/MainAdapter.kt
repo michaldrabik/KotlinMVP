@@ -1,9 +1,9 @@
-package com.michaldrabik.kotlintest.ui.adapters
+package com.michaldrabik.kotlintest.ui.main
 
 import android.content.Context
 import com.michaldrabik.kotlintest.data.models.Joke
-import com.michaldrabik.kotlintest.ui.viewholders.BaseViewHolder
-import com.michaldrabik.kotlintest.ui.viewholders.JokeViewHolder
+import com.michaldrabik.kotlintest.ui.base.BaseListAdapter
+import com.michaldrabik.kotlintest.ui.base.BaseViewHolder
 
 class MainAdapter : BaseListAdapter<Joke>() {
 

@@ -1,7 +1,7 @@
-package com.michaldrabik.kotlintest.ui.views.presenters
+package com.michaldrabik.kotlintest.ui.main
 
 import com.michaldrabik.kotlintest.data.models.Joke
-import com.michaldrabik.kotlintest.ui.views.interfaces.MainView
+import com.michaldrabik.kotlintest.ui.base.BasePresenter
 
 class MainPresenter : BasePresenter<MainView>() {
 
