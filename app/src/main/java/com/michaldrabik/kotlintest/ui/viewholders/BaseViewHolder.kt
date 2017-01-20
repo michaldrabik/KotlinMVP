@@ -26,6 +26,6 @@ abstract class BaseViewHolder<T : Parcelable> : RelativeLayout {
 
   protected abstract fun layoutResId(): Int
 
-  public abstract fun setData(item: T)
+  abstract fun setData(item: T)
 
 }

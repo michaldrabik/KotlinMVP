@@ -3,13 +3,12 @@ package com.michaldrabik.kotlintest.ui.views.presenters
 import com.michaldrabik.kotlintest.data.api.Api
 import com.michaldrabik.kotlintest.data.api.JokesApi
 import com.michaldrabik.kotlintest.ui.views.interfaces.PresenterView
-import rx.Subscription
-import rx.subscriptions.CompositeSubscription
+import io.reactivex.disposables.CompositeDisposable
 
-abstract class BasePresenter<T : PresenterView>() {
+abstract class BasePresenter<T : PresenterView> {
 
   var jokesApi: Api = JokesApi
-  protected val compositeSubscription = CompositeSubscription()
+  protected val disposables = CompositeDisposable()
   protected var view: T? = null
 
   fun bind(view: T) {
@@ -20,12 +19,8 @@ abstract class BasePresenter<T : PresenterView>() {
     this.view = null
   }
 
-  protected fun addSubscription(subscription: Subscription) {
-    compositeSubscription.add(subscription)
-  }
-
   fun onDestroy() {
-    compositeSubscription.clear()
+    disposables.clear()
     unbind()
   }
 

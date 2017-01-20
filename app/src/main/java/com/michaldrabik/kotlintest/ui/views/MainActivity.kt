@@ -13,16 +13,14 @@ import com.michaldrabik.kotlintest.ui.DividerItemDecoration
 import com.michaldrabik.kotlintest.ui.adapters.MainAdapter
 import com.michaldrabik.kotlintest.ui.views.interfaces.MainView
 import com.michaldrabik.kotlintest.ui.views.presenters.MainPresenter
-import kotlinx.android.synthetic.activity_main.progressBar
-import kotlinx.android.synthetic.activity_main.recyclerView
-import kotlinx.android.synthetic.activity_main.swipeRefreshLayout
+import kotlinx.android.synthetic.main.activity_main.*
 
 open class MainActivity : BaseActivity(), MainView, SwipeRefreshLayout.OnRefreshListener {
 
   val adapter = MainAdapter()
   val presenter = MainPresenter()
 
-  override fun getLayoutResId() = R.layout.activity_main;
+  override fun getLayoutResId() = R.layout.activity_main
 
   override fun getActivityTitle(): String = getString(R.string.chuck_norris_jokes)
 

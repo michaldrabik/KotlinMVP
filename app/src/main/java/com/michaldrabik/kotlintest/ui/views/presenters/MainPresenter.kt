@@ -1,22 +1,17 @@
 package com.michaldrabik.kotlintest.ui.views.presenters
 
-import com.michaldrabik.kotlintest.data.SimpleObserver
 import com.michaldrabik.kotlintest.data.models.Joke
-import com.michaldrabik.kotlintest.data.models.Response
 import com.michaldrabik.kotlintest.ui.views.interfaces.MainView
 
-class MainPresenter() : BasePresenter<MainView>() {
+class MainPresenter : BasePresenter<MainView>() {
 
   fun fetchJokes() {
-    addSubscription(jokesApi.fetchRandomJokes().subscribe(object : SimpleObserver<Response<Joke>>() {
-      override fun onNext(response: Response<Joke>) {
-        onFetchJokesSuccess(response.value)
-      }
-
-      override fun onError(error: Throwable) {
-        onFetchJokesError(error)
-      }
-    }))
+    disposables.add(
+        jokesApi.fetchRandomJokes().subscribe(
+            { onFetchJokesSuccess(it.value) },
+            { onFetchJokesError(it) }
+        )
+    )
   }
 
   fun onFetchJokesSuccess(jokes: List<Joke>) {

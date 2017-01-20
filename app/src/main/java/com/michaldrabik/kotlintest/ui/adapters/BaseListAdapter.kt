@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.michaldrabik.kotlintest.ui.viewholders.BaseViewHolder
 import java.util.*
 
-abstract class BaseListAdapter<T : Parcelable>() : RecyclerView.Adapter<BaseListAdapter.ViewHolder>() {
+abstract class BaseListAdapter<T : Parcelable> : RecyclerView.Adapter<BaseListAdapter<T>.ViewHolder>() {
 
   abstract fun getListItemView(context: Context): BaseViewHolder<T>
 
