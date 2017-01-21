@@ -6,29 +6,32 @@ import android.widget.Toast
 import com.michaldrabik.kotlintest.R
 import com.michaldrabik.kotlintest.data.model.Joke
 import com.michaldrabik.kotlintest.ui.base.BaseActivity
-import com.michaldrabik.kotlintest.utilities.DividerItemDecoration
-import com.michaldrabik.kotlintest.utilities.dpToPx
-import com.michaldrabik.kotlintest.utilities.hide
-import com.michaldrabik.kotlintest.utilities.show
+import com.michaldrabik.kotlintest.ui.main.list.MainAdapter
+import com.michaldrabik.kotlintest.utilities.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
+import javax.inject.Inject
 
 open class MainActivity : BaseActivity(), MainView {
 
-  val adapter = MainAdapter()
-  val presenter = MainPresenter()
+  @Inject lateinit var presenter: MainPresenter
+  @Inject lateinit var adapter: MainAdapter
 
   override fun getLayoutResId() = R.layout.activity_main
 
-  override fun getActivityTitle(): String = getString(R.string.chuck_norris_jokes)
-
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    presenter.bind(this)
-    toolbarTitle.text = getActivityTitle()
+    getAppComponent().inject(this)
+
+    setupToolbar()
     setupRecycler()
     setupSwipeToRefresh()
-    fetchJokes()
+
+    presenter.bind(this)
+  }
+
+  private fun setupToolbar() {
+    toolbarTitle.text = getString(R.string.chuck_norris_jokes)
   }
 
   private fun setupRecycler() {
@@ -51,17 +54,17 @@ open class MainActivity : BaseActivity(), MainView {
     adapter.clearItems()
     adapter.addItems(jokes)
     progressBar.hide()
-    swipeRefreshLayout.isRefreshing = false;
+    swipeRefreshLayout.isRefreshing = false
   }
 
   override fun onFetchJokesError(error: Throwable) {
-    Toast.makeText(this, R.string.something_went_wrong_error, Toast.LENGTH_SHORT).show()
+    Toast.makeText(this, "Error. ${error.message.toString()}", Toast.LENGTH_LONG).show()
     progressBar.hide()
-    swipeRefreshLayout.isRefreshing = false;
+    swipeRefreshLayout.isRefreshing = false
   }
 
   override fun onDestroy() {
-    presenter.onDestroy()
+    presenter.destroy()
     super.onDestroy()
   }
 

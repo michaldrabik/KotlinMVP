@@ -7,8 +7,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
   protected abstract fun getLayoutResId(): Int
 
-  protected abstract fun getActivityTitle(): String
-
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(getLayoutResId())

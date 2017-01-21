@@ -1,4 +1,4 @@
-package com.michaldrabik.kotlintest.ui.base
+package com.michaldrabik.kotlintest.ui.base.list
 
 import android.content.Context
 import android.os.Parcelable

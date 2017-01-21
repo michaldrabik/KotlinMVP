@@ -1,12 +1,9 @@
 package com.michaldrabik.kotlintest.ui.base
 
-import com.michaldrabik.kotlintest.data.api.Api
-import com.michaldrabik.kotlintest.data.api.JokesApi
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BasePresenter<T : MvpView> {
 
-  var jokesApi: Api = JokesApi
   protected val disposables = CompositeDisposable()
   protected var view: T? = null
 
@@ -18,7 +15,7 @@ abstract class BasePresenter<T : MvpView> {
     this.view = null
   }
 
-  fun onDestroy() {
+  fun destroy() {
     disposables.clear()
     unbind()
   }

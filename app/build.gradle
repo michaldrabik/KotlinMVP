@@ -19,11 +19,9 @@ android {
   }
   buildTypes {
     debug {
-      buildConfigField "String", "API_URL", "\"http://api.icndb.com/\""
       minifyEnabled false
     }
     release {
-      buildConfigField "String", "API_URL", "\"http://api.icndb.com/\""
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }

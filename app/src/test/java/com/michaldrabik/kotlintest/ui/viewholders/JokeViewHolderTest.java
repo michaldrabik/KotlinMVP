@@ -7,7 +7,7 @@ import com.michaldrabik.kotlintest.BuildConfig;
 import com.michaldrabik.kotlintest.MockModelsFactory;
 import com.michaldrabik.kotlintest.R;
 import com.michaldrabik.kotlintest.data.model.Joke;
-import com.michaldrabik.kotlintest.ui.main.JokeViewHolder;
+import com.michaldrabik.kotlintest.ui.main.list.JokeViewHolder;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
