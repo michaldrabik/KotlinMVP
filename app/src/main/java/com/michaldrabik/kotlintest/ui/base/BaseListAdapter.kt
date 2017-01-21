@@ -8,9 +8,9 @@ import java.util.*
 
 abstract class BaseListAdapter<T : Parcelable> : RecyclerView.Adapter<BaseListAdapter<T>.ViewHolder>() {
 
-  abstract fun getListItemView(context: Context): BaseViewHolder<T>
-
   protected var items: MutableList<T> = ArrayList()
+
+  abstract fun getListItemView(context: Context): BaseViewHolder<T>
 
   fun clearItems() {
     val itemCount = items.size
@@ -23,17 +23,11 @@ abstract class BaseListAdapter<T : Parcelable> : RecyclerView.Adapter<BaseListAd
     notifyItemRangeInserted(0, itemsToAdd.size)
   }
 
-  override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-    return ViewHolder(getListItemView(viewGroup.context))
-  }
+  override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder = ViewHolder(getListItemView(viewGroup.context))
 
-  override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-    viewHolder.view.setData(items[position])
-  }
+  override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) = viewHolder.view.setData(items[position])
 
-  override fun getItemCount(): Int {
-    return items.size
-  }
+  override fun getItemCount(): Int = items.size
 
   inner class ViewHolder(var view: BaseViewHolder<T>) : RecyclerView.ViewHolder(view)
 

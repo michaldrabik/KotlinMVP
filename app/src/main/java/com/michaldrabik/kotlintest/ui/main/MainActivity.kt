@@ -1,7 +1,6 @@
 package com.michaldrabik.kotlintest.ui.main
 
 import android.os.Bundle
-import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.michaldrabik.kotlintest.R
@@ -12,8 +11,9 @@ import com.michaldrabik.kotlintest.utilities.dpToPx
 import com.michaldrabik.kotlintest.utilities.hide
 import com.michaldrabik.kotlintest.utilities.show
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.toolbar.*
 
-open class MainActivity : BaseActivity(), MainView, SwipeRefreshLayout.OnRefreshListener {
+open class MainActivity : BaseActivity(), MainView {
 
   val adapter = MainAdapter()
   val presenter = MainPresenter()
@@ -25,6 +25,7 @@ open class MainActivity : BaseActivity(), MainView, SwipeRefreshLayout.OnRefresh
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     presenter.bind(this)
+    toolbarTitle.text = getActivityTitle()
     setupRecycler()
     setupSwipeToRefresh()
     fetchJokes()
@@ -38,7 +39,7 @@ open class MainActivity : BaseActivity(), MainView, SwipeRefreshLayout.OnRefresh
   }
 
   private fun setupSwipeToRefresh() {
-    swipeRefreshLayout.setOnRefreshListener(this)
+    swipeRefreshLayout.setOnRefreshListener { presenter.fetchJokes() }
   }
 
   private fun fetchJokes() {
@@ -57,10 +58,6 @@ open class MainActivity : BaseActivity(), MainView, SwipeRefreshLayout.OnRefresh
     Toast.makeText(this, R.string.something_went_wrong_error, Toast.LENGTH_SHORT).show()
     progressBar.hide()
     swipeRefreshLayout.isRefreshing = false;
-  }
-
-  override fun onRefresh() {
-    presenter.fetchJokes()
   }
 
   override fun onDestroy() {
