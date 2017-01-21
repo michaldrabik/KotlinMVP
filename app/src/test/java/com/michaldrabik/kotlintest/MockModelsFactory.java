@@ -1,6 +1,6 @@
 package com.michaldrabik.kotlintest;
 
-import com.michaldrabik.kotlintest.data.models.Joke;
+import com.michaldrabik.kotlintest.data.model.Joke;
 import java.util.ArrayList;
 import java.util.List;
 

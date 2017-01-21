@@ -2,7 +2,7 @@ package com.michaldrabik.kotlintest.ui.main
 
 import android.content.Context
 import com.michaldrabik.kotlintest.R
-import com.michaldrabik.kotlintest.data.models.Joke
+import com.michaldrabik.kotlintest.data.model.Joke
 import com.michaldrabik.kotlintest.ui.base.BaseViewHolder
 import kotlinx.android.synthetic.main.view_joke.view.*
 

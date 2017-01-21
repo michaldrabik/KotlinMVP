@@ -2,8 +2,8 @@ package com.michaldrabik.kotlintest.data.api
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.michaldrabik.kotlintest.BuildConfig
-import com.michaldrabik.kotlintest.data.models.Joke
-import com.michaldrabik.kotlintest.data.models.Response
+import com.michaldrabik.kotlintest.data.model.Joke
+import com.michaldrabik.kotlintest.data.model.Response
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

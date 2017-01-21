@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.michaldrabik.kotlintest.R
-import com.michaldrabik.kotlintest.data.models.Joke
+import com.michaldrabik.kotlintest.data.model.Joke
 import com.michaldrabik.kotlintest.ui.base.BaseActivity
 import com.michaldrabik.kotlintest.utilities.DividerItemDecoration
 import com.michaldrabik.kotlintest.utilities.dpToPx

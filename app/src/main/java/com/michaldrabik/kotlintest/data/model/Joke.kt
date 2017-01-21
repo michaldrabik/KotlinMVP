@@ -1,4 +1,4 @@
-package com.michaldrabik.kotlintest.data.models
+package com.michaldrabik.kotlintest.data.model
 
 import android.os.Parcel
 import android.os.Parcelable

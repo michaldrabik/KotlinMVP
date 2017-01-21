@@ -1,8 +1,8 @@
-package com.michaldrabik.kotlintest.data.models;
+package com.michaldrabik.kotlintest.data.model;
 
 import android.os.Parcel;
-import com.michaldrabik.kotlintest.BuildConfig;
 import com.michaldrabik.kotlintest.App;
+import com.michaldrabik.kotlintest.BuildConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricGradleTestRunner;

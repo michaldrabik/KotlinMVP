@@ -1,7 +1,7 @@
 package com.michaldrabik.kotlintest.data.api
 
-import com.michaldrabik.kotlintest.data.models.Joke
-import com.michaldrabik.kotlintest.data.models.Response
+import com.michaldrabik.kotlintest.data.model.Joke
+import com.michaldrabik.kotlintest.data.model.Response
 import io.reactivex.Observable
 import retrofit2.http.GET
 
