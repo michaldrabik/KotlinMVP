@@ -4,6 +4,7 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.michaldrabik.kotlintest.BuildConfig
 import com.michaldrabik.kotlintest.data.model.Joke
 import com.michaldrabik.kotlintest.data.model.Response
+import com.michaldrabik.kotlintest.data.remote.JokesService
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -20,7 +21,7 @@ object JokesApi : Api {
       .build()
 
   override fun fetchRandomJokes(): Observable<Response<Joke>> {
-    return jokesService.fetchRandomJokes()
+    return jokesService.fetchRandomJokes(50)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
   }

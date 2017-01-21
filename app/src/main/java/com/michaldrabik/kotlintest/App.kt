@@ -1,12 +1,19 @@
 package com.michaldrabik.kotlintest
 
 import android.app.Application
-import android.content.Context
+import com.michaldrabik.kotlintest.injection.component.AppComponent
+import com.michaldrabik.kotlintest.injection.component.DaggerAppComponent
 
 class App : Application() {
 
-  companion object {
-    fun get(context: Context): App = context.applicationContext as App
+  lateinit var appComponent: AppComponent
+
+  override fun onCreate() {
+    super.onCreate()
+    setupComponent()
   }
 
+  private fun setupComponent() {
+    appComponent = DaggerAppComponent.builder().build()
+  }
 }
