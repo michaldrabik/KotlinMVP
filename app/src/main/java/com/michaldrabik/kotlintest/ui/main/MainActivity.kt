@@ -7,7 +7,9 @@ import com.michaldrabik.kotlintest.R
 import com.michaldrabik.kotlintest.data.model.Joke
 import com.michaldrabik.kotlintest.ui.base.BaseActivity
 import com.michaldrabik.kotlintest.ui.main.list.MainAdapter
-import com.michaldrabik.kotlintest.utilities.*
+import com.michaldrabik.kotlintest.utilities.DividerItemDecoration
+import com.michaldrabik.kotlintest.utilities.extensions.dpToPx
+import com.michaldrabik.kotlintest.utilities.extensions.hide
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
@@ -21,7 +23,7 @@ open class MainActivity : BaseActivity(), MainView {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    getAppComponent().inject(this)
+    activityComponent?.inject(this)
 
     setupToolbar()
     setupRecycler()
@@ -37,7 +39,7 @@ open class MainActivity : BaseActivity(), MainView {
   private fun setupRecycler() {
     recyclerView.setHasFixedSize(true)
     recyclerView.layoutManager = LinearLayoutManager(this)
-    recyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL, 8.dpToPx(this).toInt()))
+    recyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL, 8.dpToPx(this)))
     recyclerView.adapter = adapter
   }
 
@@ -45,21 +47,15 @@ open class MainActivity : BaseActivity(), MainView {
     swipeRefreshLayout.setOnRefreshListener { presenter.fetchJokes() }
   }
 
-  private fun fetchJokes() {
-    presenter.fetchJokes()
-    progressBar.show()
-  }
-
   override fun onFetchJokesSuccess(jokes: List<Joke>) {
     adapter.clearItems()
     adapter.addItems(jokes)
-    progressBar.hide()
     swipeRefreshLayout.isRefreshing = false
+    statusText.hide()
   }
 
   override fun onFetchJokesError(error: Throwable) {
     Toast.makeText(this, "Error. ${error.message.toString()}", Toast.LENGTH_LONG).show()
-    progressBar.hide()
     swipeRefreshLayout.isRefreshing = false
   }
 

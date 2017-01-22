@@ -39,7 +39,7 @@ public class JokeViewHolderTest {
 
   @Test public void shouldSetDataProperly() {
     Joke joke = MockModelsFactory.createJoke(1, "Haha");
-    jokeViewHolder.setData(joke);
+    jokeViewHolder.bind(joke);
     assertThat(idTextView.getText().toString(), is(String.valueOf(joke.getId())));
     assertThat(jokeTextView.getText().toString(), is(joke.getJoke()));
   }

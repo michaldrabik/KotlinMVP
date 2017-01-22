@@ -25,7 +25,7 @@ abstract class BaseListAdapter<T : Parcelable> : RecyclerView.Adapter<BaseListAd
 
   override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder = ViewHolder(getListItemView(viewGroup.context))
 
-  override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) = viewHolder.view.setData(items[position])
+  override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) = viewHolder.view.bind(items[position])
 
   override fun getItemCount(): Int = items.size
 

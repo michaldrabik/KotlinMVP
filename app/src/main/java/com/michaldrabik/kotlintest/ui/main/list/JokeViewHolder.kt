@@ -10,7 +10,7 @@ class JokeViewHolder(context: Context) : BaseViewHolder<Joke>(context) {
 
   override fun layoutResId(): Int = R.layout.view_joke
 
-  override fun setData(item: Joke) {
+  override fun bind(item: Joke) {
     idText.text = "#${item.id}"
     jokeText.text = item.joke
   }

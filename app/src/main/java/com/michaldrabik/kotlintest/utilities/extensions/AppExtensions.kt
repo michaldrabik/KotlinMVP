@@ -1,4 +1,4 @@
-package com.michaldrabik.kotlintest.utilities
+package com.michaldrabik.kotlintest.utilities.extensions
 
 import android.content.Context
 import com.michaldrabik.kotlintest.App

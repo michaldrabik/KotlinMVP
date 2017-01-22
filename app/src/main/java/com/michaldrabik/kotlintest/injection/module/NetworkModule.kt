@@ -18,13 +18,16 @@ open class NetworkModule {
     const val API_URL = "http://api.icndb.com/"
   }
 
-  @Provides @Singleton
+  @Provides
+  @Singleton
   fun provideGson(): Gson = GsonBuilder().create()
 
-  @Provides @Singleton
+  @Provides
+  @Singleton
   fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder().build()
 
-  @Provides @Singleton
+  @Provides
+  @Singleton
   fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
     return Retrofit.Builder()
         .client(okHttpClient)
@@ -34,6 +37,7 @@ open class NetworkModule {
         .build()
   }
 
-  @Provides @Singleton
+  @Provides
+  @Singleton
   open fun provideJokesService(retrofit: Retrofit): JokesService = retrofit.create(JokesService::class.java)
 }

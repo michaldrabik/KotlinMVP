@@ -7,7 +7,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class DataManagerImpl @Inject constructor(val jokesService: JokesService) : DataManager {
+internal class DataManagerImpl @Inject constructor(val jokesService: JokesService) : DataManager {
 
   override fun getRandomJokes(count: Int): Observable<List<Joke>> {
     return jokesService

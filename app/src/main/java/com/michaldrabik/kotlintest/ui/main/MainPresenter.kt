@@ -2,13 +2,13 @@ package com.michaldrabik.kotlintest.ui.main
 
 import com.michaldrabik.kotlintest.data.DataManager
 import com.michaldrabik.kotlintest.data.model.Joke
+import com.michaldrabik.kotlintest.injection.scope.PerActivity
 import com.michaldrabik.kotlintest.ui.base.BasePresenter
 import io.reactivex.android.schedulers.AndroidSchedulers.mainThread
 import io.reactivex.schedulers.Schedulers.io
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
+@PerActivity
 class MainPresenter @Inject constructor(val dataManager: DataManager) : BasePresenter<MainView>() {
 
   fun fetchJokes() {
