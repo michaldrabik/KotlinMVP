@@ -6,21 +6,15 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
 
-abstract class BaseViewHolder<T : Parcelable> : RelativeLayout {
+abstract class BaseViewHolder<T> @JvmOverloads constructor(
+  context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : RelativeLayout(context, attrs, defStyleAttr) {
 
-  constructor(context: Context) : super(context) {
-    init()
+  init {
+    inflate()
   }
 
-  constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-    init()
-  }
-
-  constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-    init()
-  }
-
-  private fun init() {
+  private fun inflate() {
     View.inflate(context, layoutResId(), this)
   }
 

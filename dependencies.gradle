@@ -1,8 +1,8 @@
 ext {
 
-  final supportVersion = '25.1.0'
-  final retrofitVersion = '2.1.0'
-  final rxVersion = '2.0.1'
+  final supportVersion = '27.1.1'
+  final retrofitVersion = '2.4.0'
+  final rxVersion = '2.1.0'
   final daggerVersion = '2.8'
 
   dependencies = [
@@ -15,12 +15,12 @@ ext {
       supportDesign        : "com.android.support:design:$supportVersion",
       supportRecyclerView  : "com.android.support:recyclerview-v7:$supportVersion",
 
-      javaxAnnotation      : "org.glassfish:javax.annotation:10.0-b28",
       dagger               : "com.google.dagger:dagger:$daggerVersion",
       daggerCompiler       : "com.google.dagger:dagger-compiler:$daggerVersion",
 
       //RxJava
-      rxJava               : "io.reactivex.rxjava2:rxandroid:$rxVersion",
+      rxAndroid         : "io.reactivex.rxjava2:rxandroid:$rxVersion",
+      rxJava            : "io.reactivex.rxjava2:rxjava:$rxVersion",
 
       //Retrofit
       retrofit             : "com.squareup.retrofit2:retrofit:$retrofitVersion",

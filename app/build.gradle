@@ -1,19 +1,15 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
-kapt {
-  generateStubs = true
-}
+apply plugin: 'kotlin-kapt'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion "25.0.2"
+  compileSdkVersion 27
 
   defaultConfig {
     applicationId "com.michaldrabik.kotlintest"
     minSdkVersion 18
-    targetSdkVersion 25
+    targetSdkVersion 27
     versionCode 1
     versionName "1.0"
   }
@@ -35,30 +31,30 @@ dependencies {
   def dependencies = rootProject.ext.dependencies
   def testDependencies = rootProject.ext.testDependencies
 
-  compile dependencies.kotlin
+  implementation dependencies.kotlin
 
   //Android Support
-  compile dependencies.support
-  compile dependencies.supportRecyclerView
-  compile dependencies.supportDesign
+  implementation dependencies.support
+  implementation dependencies.supportRecyclerView
+  implementation dependencies.supportDesign
 
   //Rx
-  compile dependencies.rxJava
+  implementation dependencies.rxJava
+  implementation dependencies.rxAndroid
 
   //Retrofit
-  compile dependencies.retrofit
-  compile dependencies.retrofitGsonConverter
-  compile dependencies.retrofitRxJavaAdapter
+  implementation dependencies.retrofit
+  implementation dependencies.retrofitGsonConverter
+  implementation dependencies.retrofitRxJavaAdapter
 
   //Dagger2
-  provided dependencies.javaxAnnotation
-  compile dependencies.dagger
+  implementation dependencies.dagger
   kapt dependencies.daggerCompiler
 
   //Tests
-  testCompile testDependencies.jUnit
-  testCompile testDependencies.hamcrest
-  testCompile testDependencies.mockito
-  testCompile testDependencies.robolectric
+  testImplementation testDependencies.jUnit
+  testImplementation testDependencies.hamcrest
+  testImplementation testDependencies.mockito
+  testImplementation testDependencies.robolectric
 }
 

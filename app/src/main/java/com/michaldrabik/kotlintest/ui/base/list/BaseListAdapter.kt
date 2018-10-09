@@ -4,11 +4,11 @@ import android.content.Context
 import android.os.Parcelable
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import java.util.*
+import java.util.ArrayList
 
-abstract class BaseListAdapter<T : Parcelable> : RecyclerView.Adapter<BaseListAdapter<T>.ViewHolder>() {
+abstract class BaseListAdapter<T> : RecyclerView.Adapter<BaseListAdapter<T>.ViewHolder>() {
 
-  protected var items: MutableList<T> = ArrayList()
+  private var items: MutableList<T> = ArrayList()
 
   abstract fun getListItemView(context: Context): BaseViewHolder<T>
 

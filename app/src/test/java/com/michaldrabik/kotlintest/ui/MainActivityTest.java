@@ -34,7 +34,6 @@ public class MainActivityTest {
 
   private MainActivity activity;
   private MainPresenter presenter;
-  private ProgressBar progressBar;
   private Toolbar toolbar;
 
   @Before
@@ -47,8 +46,7 @@ public class MainActivityTest {
   }
 
   private void findViews() {
-    progressBar = (ProgressBar) activity.findViewById(R.id.progressBar);
-    toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
+    toolbar = activity.findViewById(R.id.toolbar);
   }
 
   @Test
@@ -59,19 +57,8 @@ public class MainActivityTest {
 
   @Test
   public void toolbarShouldHaveProperTitle() {
-    TextView toolbarTitle = (TextView) activity.findViewById(R.id.toolbarTitle);
+    TextView toolbarTitle = activity.findViewById(R.id.toolbarTitle);
     assertThat(toolbarTitle.getText().toString(), is("Chuck Norris Jokes"));
-  }
-
-  @Test
-  public void progressBarShouldBeVisible() {
-    assertThat(progressBar.getVisibility(), is(View.VISIBLE));
-  }
-
-  @Test
-  public void shouldHideProgressWhenPresenterNotifiesSuccess() {
-    presenter.onFetchJokesSuccess(MockModelsFactory.createListOfJokes(50));
-    assertThat(progressBar.getVisibility(), is(View.GONE));
   }
 
   @Test
@@ -80,11 +67,6 @@ public class MainActivityTest {
     assertThat(activity.getAdapter().getItemCount(), greaterThan(0));
   }
 
-  @Test
-  public void shouldHideProgressWhenPresenterNotifiesError() {
-    presenter.onFetchJokesError(new Throwable("Error"));
-    assertThat(progressBar.getVisibility(), is(View.GONE));
-  }
 
   @Test
   public void shouldShowErrorToastWhenPresenterNotifiesError() {

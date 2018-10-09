@@ -3,7 +3,7 @@ package com.michaldrabik.kotlintest.ui.base
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.michaldrabik.kotlintest.injection.component.ActivityComponent
-import com.michaldrabik.kotlintest.utilities.extensions.getAppComponent
+import com.michaldrabik.kotlintest.utilities.getAppComponent
 
 abstract class BaseActivity : AppCompatActivity() {
 

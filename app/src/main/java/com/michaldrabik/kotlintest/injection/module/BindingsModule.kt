@@ -6,7 +6,7 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-abstract class Bindings {
+abstract class BindingsModule {
 
   @Binds
   internal abstract fun bindDataManger(manager: DataManagerImpl): DataManager

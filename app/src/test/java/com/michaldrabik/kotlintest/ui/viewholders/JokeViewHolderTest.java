@@ -33,8 +33,8 @@ public class JokeViewHolderTest {
   }
 
   private void findViews() {
-    idTextView = (TextView) jokeViewHolder.findViewById(R.id.idText);
-    jokeTextView = (TextView) jokeViewHolder.findViewById(R.id.jokeText);
+    idTextView = jokeViewHolder.findViewById(R.id.idText);
+    jokeTextView = jokeViewHolder.findViewById(R.id.jokeText);
   }
 
   @Test public void shouldSetDataProperly() {

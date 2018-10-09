@@ -9,25 +9,23 @@ import io.reactivex.schedulers.Schedulers.io
 import javax.inject.Inject
 
 @PerActivity
-class MainPresenter @Inject constructor(val dataManager: DataManager) : BasePresenter<MainView>() {
+class MainPresenter @Inject constructor(private val dataManager: DataManager) : BasePresenter<MainView>() {
 
   fun fetchJokes() {
-    disposables.add(
-        dataManager.getRandomJokes(100)
-            .subscribeOn(io())
-            .observeOn(mainThread())
-            .subscribe(
-                { onFetchJokesSuccess(it) },
-                { onFetchJokesError(it) })
-    )
+    with(disposables) {
+      clear()
+      add(
+        dataManager.loadRandomJokes(100)
+          .subscribeOn(io())
+          .observeOn(mainThread())
+          .subscribe(
+            { onFetchJokesSuccess(it) },
+            { onFetchJokesError(it) })
+      )
+    }
   }
 
-  fun onFetchJokesSuccess(jokes: List<Joke>) {
-    view?.onFetchJokesSuccess(jokes)
-  }
+  fun onFetchJokesSuccess(jokes: List<Joke>) = view?.showJokes(jokes)
 
-  fun onFetchJokesError(error: Throwable) {
-    view?.onFetchJokesError(error)
-  }
-
+  fun onFetchJokesError(error: Throwable) = view?.showError(error)
 }

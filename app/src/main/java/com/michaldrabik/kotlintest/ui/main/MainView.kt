@@ -5,8 +5,8 @@ import com.michaldrabik.kotlintest.ui.base.MvpView
 
 interface MainView : MvpView {
 
-  fun onFetchJokesSuccess(jokes: List<Joke>)
+  fun showJokes(jokes: List<Joke>)
 
-  fun onFetchJokesError(error: Throwable)
+  fun showError(error: Throwable)
 
 }

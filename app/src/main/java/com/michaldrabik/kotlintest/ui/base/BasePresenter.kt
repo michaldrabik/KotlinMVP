@@ -11,13 +11,8 @@ abstract class BasePresenter<T : MvpView> {
     this.view = view
   }
 
-  fun unbind() {
-    this.view = null
-  }
-
   fun destroy() {
     disposables.clear()
-    unbind()
+    this.view = null
   }
-
 }

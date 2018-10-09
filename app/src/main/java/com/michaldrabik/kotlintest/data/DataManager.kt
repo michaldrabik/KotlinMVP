@@ -1,10 +1,10 @@
 package com.michaldrabik.kotlintest.data
 
 import com.michaldrabik.kotlintest.data.model.Joke
-import io.reactivex.Observable
+import io.reactivex.Single
 
 interface DataManager {
 
-  fun getRandomJokes(count: Int): Observable<List<Joke>>
+  fun loadRandomJokes(count: Int): Single<List<Joke>>
 
 }
